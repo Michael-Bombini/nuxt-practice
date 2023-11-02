@@ -8,8 +8,8 @@
 
 
 <style>
-/* html, body {
+html, body {
 @apply bg-slate-950
-} */
+}
 
 </style>
