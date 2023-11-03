@@ -1,7 +1,8 @@
 <template>
+    
   <div
     class="text-white text-center text-3xl font-bold"
-    v-if="authors.length < 0"
+    v-if="authors.length === 0"
   >
     You are not following any authors
   </div>
