@@ -6,7 +6,7 @@
       <NuxtLink class="text-4xl font-bold text-green-300" to="/">Nuxt</NuxtLink>
       <ul class="flex gap-8 text-lg">
         <li>
-          <NuxtLink to="/articles">Articles</NuxtLink>
+          <NuxtLink to="/authors">Followed Authors</NuxtLink>
         </li>
         <li>
           <NuxtLink to="/about">About</NuxtLink>
