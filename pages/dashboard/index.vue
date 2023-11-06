@@ -5,32 +5,45 @@
   <div v-if="!pending">
     <Bar :data="chartData" :options="chartOptions" />
   </div>
-  <div class="container mx-auto">
-    <h2 class="text-3xl text-white font-bold my-12">
-      Latest Posts
-    </h2>
-    <v-table>
-      <thead>
-        <tr>
-          <th class="text-left">Creation Date</th>
-          <th class="text-left">Title</th>
-          <th class="text-left">Category</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr v-for="item in posts" :key="item.category">
-          <td>{{ formatDate(item.created_at) }}</td>
-          <td>{{ item.title }}</td>
-          <td>{{ item.category }}</td>
-        </tr>
-      </tbody>
-    </v-table>
+  <div class="container mx-auto py-6">
+    <h2 class="text-3xl text-white font-bold my-12">Latest Posts</h2>
+    <Table class="text-white">
+      <TableCaption>Most recent post articles</TableCaption>
+      <TableHeader>
+        <TableRow class="hover:bg-green-200">
+          <TableHead>Date </TableHead>
+          <TableHead>Title</TableHead>
+          <TableHead>Category</TableHead>
+        </TableRow>
+      </TableHeader>
+      <TableBody>
+        <TableRow
+          v-for="post in posts"
+          class="hover:bg-green-500 hover:text-black "
+        >
+          <TableCell class="font-medium"
+            >{{ formatDate(post.created_at) }}
+          </TableCell>
+          <TableCell>{{ post.title }}</TableCell>
+          <TableCell>{{ post.category }}</TableCell>
+        </TableRow>
+      </TableBody>
+    </Table>
   </div>
 </template>
 
 <script setup lang="ts">
 import { ref } from "vue";
 import { Bar } from "vue-chartjs";
+import {
+  Table,
+  TableBody,
+  TableCaption,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
 import type { PostResponse } from "~/models/Posts";
 
 const { pending, data: postList } = await useFetch<PostResponse>(

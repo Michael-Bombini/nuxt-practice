@@ -4,6 +4,15 @@ export default defineNuxtConfig({
   build: {
     transpile: ["vuetify"],
   },
+  // components: [
+  //   {
+  //     path: "~/components/ui",
+  //     // this is required else Nuxt will autoImport `.ts` file
+  //     extensions: [".vue"],
+  //     // prefix for your components, eg: UiButton
+  //     prefix: "Ui",
+  //   },
+  // ],
   devtools: { enabled: true },
   modules: [
     "@nuxtjs/tailwindcss",
